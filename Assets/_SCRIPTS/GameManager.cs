@@ -14,11 +14,11 @@ public class GameManager : MonoBehaviour
     private Character guilty;
     public List<TMP_Text> tips = new List<TMP_Text>();
     public List<Player> players = new List<Player>();
-    public List<PlayerTurnScreen> playersTurn = new List<PlayerTurnScreen>();
+    public List<GameObject> playersTurn = new List<GameObject>();
     public List<Character> suspects = new List<Character>();
     public List<GameObject> gameScreens = new List<GameObject>();
     public int currentScreen;
-    Player currentPlayer;
+    public int currentPlayer;
 
     private void Start()
     {
@@ -59,15 +59,15 @@ public class GameManager : MonoBehaviour
             {
                 GameObject screen = Instantiate(playerTurnPrefab, canvas.transform);
                 gameScreens.Add(screen);
-
-                screen.GetComponent<PlayerTurnScreen>().player = players[x];
-                screen.GetComponent<PlayerTurnScreen>().orderToPlay = x;
-                screen.GetComponent<PlayerTurnScreen>().doNothingBtn.onClick.AddListener(() => NextTurn(x));
+                PlayerTurnScreen playerTurnScreen = screen.GetComponent<PlayerTurnScreen>();
+                playerTurnScreen.player = players[x];
+                playerTurnScreen.orderToPlay = x;
+                playerTurnScreen.doNothingBtn.onClick.AddListener(() => NextTurn());
                 for (int y = 0; y < guilty.tips.Count; y++)
                 {
-                    screen.GetComponent<PlayerTurnScreen>().tips[y].text = guilty.tips[y];
+                    playerTurnScreen.tips[y].text = guilty.tips[y];
                 }
-                playersTurn.Add(screen.GetComponent<PlayerTurnScreen>());
+                playersTurn.Add(screen);
                 
                 screen.SetActive(false);
             }
@@ -82,13 +82,60 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void NextTurn(int index)
+    public void StartGame()
     {
-        print(players[index - 1].name);
-        Continue();
-        turnWarning.GetComponent<TurnWarningScreen>().SetPlayer(players[index-1]);
-        turnWarning.SetActive(true);
-        turnWarning.transform.SetAsLastSibling();
+        currentPlayer = 0;
+
+        GameObject current = GetCurrentScreen();
+        int i = gameScreens.IndexOf(current);
+        current.SetActive(false);
+
+        playersTurn[currentPlayer].SetActive(true);
+    }
+
+    public void NextTurn()
+    {
+        GameObject current = GetCurrentScreen();
+
+        int index = playersTurn.IndexOf(current);
+        current.SetActive(false);
+
+        if (index == playersTurn.Count-1)
+        {
+            currentPlayer = 0;
+        }
+        else
+        {
+            currentPlayer++;
+        }
+        playersTurn[currentPlayer].SetActive(true);
+
+        if (currentPlayer > 0)
+        {
+            turnWarning.GetComponent<TurnWarningScreen>().SetPlayer(players[currentPlayer-1]);
+            turnWarning.SetActive(true);
+            turnWarning.transform.SetAsLastSibling();
+        }
+
+    }
+
+    public void TipUnlocked()
+    {
+        GameObject current = GetCurrentScreen();
+
+        int index = playersTurn.IndexOf(current);
+        current.SetActive(false);
+        currentPlayer++;
+        playersTurn[currentPlayer].SetActive(true);
+
+        GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
+
+        Button[] buttons = clickedButton.transform.parent.GetComponentsInChildren<Button>();
+
+        foreach (Button button in buttons)
+        {
+            button.interactable = true;
+        }
     }
 
     public void RemoveWarning()
@@ -119,16 +166,20 @@ public class GameManager : MonoBehaviour
             button.interactable = false;
         }
 
-        foreach (PlayerTurnScreen playerTurn in playersTurn)
+        foreach (GameObject playerTurn in playersTurn)
         {
-            for (int x = 0; x < playerTurn.tips.Count; x++)
+            if (playerTurn.GetComponent<PlayerTurnScreen>())
             {
-                if (tip.GetComponent<TMP_Text>().text == playerTurn.tips[x].text)
+                for (int x = 0; x < playerTurn.GetComponent<PlayerTurnScreen>().tips.Count; x++)
                 {
-                    playerTurn.tips[x].gameObject.SetActive(true);
+                    if (tip.GetComponent<TMP_Text>().text == playerTurn.GetComponent<PlayerTurnScreen>().tips[x].text)
+                    {
+                        playerTurn.GetComponent<PlayerTurnScreen>().tips[x].gameObject.SetActive(true);
+                    }
+
                 }
-                
             }
+            
             
         }
 
