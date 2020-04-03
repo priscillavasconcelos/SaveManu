@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0feb5566ea37fad45992b558da4bb28a, type: 3}
+  m_Name: Sara
+  m_EditorClassIdentifier: 
+  characterName: Sara
+  avatarSprite: {fileID: -8129995080149776113, guid: 77beedc83d183c940afe799ed534be8d,
+    type: 3}
+  backStory: 'Sara conheceu Manu nas aulas de yoga. Manu e Sara sempre foram opostas.
+    Manu era tipica carnivora sanguinaria e Sara uma uma vegana sentimental. '
+  tips:
+  - uma embalagem de barra cereal foi encontrado no local
+  - " uma pulseira de mi\xE7anga foi encontrada no local "
+  - ' Fios de cabelo cacheado foram encontrados no local.'
+  - ' Um homem foi visto saindo do local. '
+  - " Uma garrafa de \xE1gua foi esquecido no local"
