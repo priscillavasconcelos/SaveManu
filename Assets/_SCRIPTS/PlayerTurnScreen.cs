@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class PlayerTurnScreen : Screen
 {
@@ -24,8 +25,21 @@ public class PlayerTurnScreen : Screen
         suspectsPanel.SetActive(activeProfile);
     }
 
-    //public void DoNothing()
-    //{
-    //    GameManager.manager.NextTurn();
-    //}
+    public void PointGuilty()
+    {
+        GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
+        GameObject clickedButtonParent = clickedButton.transform.parent.gameObject;
+        
+        CharacterDisplay current = clickedButtonParent.GetComponentInChildren<CharacterDisplay>();
+
+        if (current.character == GameManager.manager.guilty)
+        {
+            GameManager.manager.TeamVictory(player);
+        }
+        else
+        {
+            GameManager.manager.PlayerWrongGuess(gameObject, player);
+        }
+
+    }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class GameManager : MonoBehaviour
     public GameObject playerTurnPrefab, canvas;
     public GameObject turnWarning;
     public GameObject changePlayerScreen;
-    private Character guilty;
+    public GameObject victory, defeat, playerLost;
+
+    public Character guilty;
     public List<TMP_Text> tips = new List<TMP_Text>();
     public List<Player> players = new List<Player>();
     public List<GameObject> playersTurn = new List<GameObject>();
@@ -19,10 +22,16 @@ public class GameManager : MonoBehaviour
     public List<GameObject> gameScreens = new List<GameObject>();
     public int currentScreen;
     public int currentPlayer;
-
-    private void Start()
+    private void Awake()
     {
-        
+        if (manager != null && manager != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            manager = this;
+        }
     }
 
     public void ChangePlayer()
@@ -112,11 +121,15 @@ public class GameManager : MonoBehaviour
 
         if (currentPlayer > 0)
         {
-            turnWarning.GetComponent<TurnWarningScreen>().SetPlayer(players[currentPlayer-1]);
-            turnWarning.SetActive(true);
-            turnWarning.transform.SetAsLastSibling();
+            turnWarning.GetComponent<TurnWarningScreen>().SetPlayer(players[currentPlayer - 1]);
         }
-
+        else
+        {
+            turnWarning.GetComponent<TurnWarningScreen>().SetPlayer(players[currentPlayer]);
+        }
+        
+        turnWarning.SetActive(true);
+        turnWarning.transform.SetAsLastSibling();
     }
 
     public void TipUnlocked()
@@ -188,4 +201,42 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void PlayerWrongGuess(GameObject playerTurn, Player player)
+    {
+        playerLost.SetActive(true);
+        playersTurn.Remove(playerTurn);
+        players.Remove(player);
+        Destroy(playerTurn);
+        playerLost.transform.SetAsLastSibling();
+    }
+    public void DisableWrongPlayer()
+    {
+        if (players.Count < 2)
+        {
+            playerLost.SetActive(false);
+            defeat.SetActive(true);
+            defeat.transform.SetAsLastSibling();
+        }
+        else
+        {
+            NextTurn();
+        }
+    }
+
+    public void TryAgain()
+    {
+        SceneManager.LoadScene("Teste");
+    }
+
+    public void TeamVictory(Player player)
+    {
+        string newText = victory.GetComponentInChildren<TMP_Text>().text.Replace("XXX", player.playerName);
+        victory.GetComponentInChildren<TMP_Text>().text = newText;
+        victory.SetActive(true);
+        victory.transform.SetAsLastSibling();
+    }
+    public void TeamLoose()
+    {
+        
+    }
 }
