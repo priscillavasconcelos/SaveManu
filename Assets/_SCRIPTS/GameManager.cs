@@ -9,10 +9,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager manager { get; private set; }
+    public GameObject playerPrefab, playersPanel;
     public GameObject playerTurnPrefab, canvas;
     public GameObject turnWarning;
     public GameObject changePlayerScreen;
     public GameObject victory, defeat, playerLost;
+
+    public List<Sprite> playersAvatars = new List<Sprite>();
 
     public Character guilty;
     public List<TMP_Text> tips = new List<TMP_Text>();
@@ -41,6 +44,22 @@ public class GameManager : MonoBehaviour
         GameObject current = GetCurrentScreen();
         current.SetActive(false);
         changePlayerScreen.SetActive(true);
+    }
+
+    public void AddPlayer()
+    {
+        if (playersPanel.transform.childCount < 4)
+        {
+            GameObject newPlayer = Instantiate(playerPrefab, playersPanel.transform);
+            newPlayer.GetComponent<Player>().playerName = "Jogador";
+            newPlayer.GetComponent<Player>().playerAvatarSprite = playersAvatars[Random.Range(0, playersAvatars.Count)];
+        }
+        
+    }
+
+    public void RemovePlayer()
+    {
+
     }
 
     public void SavePlayerName(InputField inputField)
@@ -89,6 +108,16 @@ public class GameManager : MonoBehaviour
         current.SetActive(false);
         gameScreens[currentScreen].SetActive(true);
         
+    }
+
+    public void Back()
+    {
+        GameObject current = GetCurrentScreen();
+
+        int index = gameScreens.IndexOf(current);
+        currentScreen = index - 1;
+        current.SetActive(false);
+        gameScreens[currentScreen].SetActive(true);
     }
 
     public void StartGame()

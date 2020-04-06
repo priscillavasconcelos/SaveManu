@@ -17,6 +17,6 @@ public class Player : MonoBehaviour
     public void SetPlayer()
     {
         GetComponent<Image>().sprite = playerAvatarSprite;
-        GetComponentInChildren<TMP_Text>().text = playerName;
+        GetComponentInChildren<Text>().text = playerName;
     }
 }
