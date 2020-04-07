@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24377bf1b1218a4c93f627322692c21, type: 3}
   m_Name: Fone
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 0}
-  description: 
+  cardSprite: {fileID: 21300000, guid: 4638df60ac35d444b95badc08534cd80, type: 3}
+  description_pt: "Um fone de ouvido foi achado pr\xF3ximo ao local do desaparecimento"
+  description_en: A headset was found near the screne

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24377bf1b1218a4c93f627322692c21, type: 3}
   m_Name: Toalha
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 0}
-  description: 
+  cardSprite: {fileID: 21300000, guid: b5adc3a756bc91343a2260444d159070, type: 3}
+  description_pt: Uma toalha bordada com iniciais MS2 foi encontrada no local
+  description_en: A towel embroidered with MS2 initials was found at the scene.

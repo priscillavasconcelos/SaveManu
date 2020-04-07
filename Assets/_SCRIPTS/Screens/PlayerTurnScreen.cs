@@ -10,8 +10,8 @@ public class PlayerTurnScreen : Screen
     public Player player;
     public int orderToPlay;
 
-    public TMP_Text playerName;
-    public List<TMP_Text> tips = new List<TMP_Text>();
+    public Text playerName;
+    public List<Text> tips = new List<Text>();
     public GameObject suspectsPanel;
 
     public Button doNothingBtn;

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Brinco
   m_EditorClassIdentifier: 
   cardSprite: {fileID: 21300000, guid: dc6a9960fd4c09a4cb3e0daa7b15cef1, type: 3}
-  description: 
+  description_pt: Um brinco foi encontrado no local
+  description_en: "An earring was found at the scene\r"

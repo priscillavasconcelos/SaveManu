@@ -10,6 +10,5 @@ public class Character : ScriptableObject
     public Sprite avatarSprite;
     [TextArea]
     public string backStory;
-    [TextArea]
-    public List<string> tips = new List<string>();
+    public List<Card> tips = new List<Card>();
 }

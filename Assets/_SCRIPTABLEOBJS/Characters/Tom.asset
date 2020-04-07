@@ -18,8 +18,8 @@ MonoBehaviour:
   backStory: "Tom e Manu se conheceram na academia e ficaram logo amigos, por\xE9m
     ap\xF3s Manu dar uma festa de 500K e n\xE3o convidar Tom essa amizade foi abalada.\r"
   tips:
-  - Restos de sorvete foram encostrados no lixo do local
-  - "Um fone de ouvido foi achado pr\xF3ximo ao local do desaparecimento"
-  - ' Um brinco foi encontrado no local. '
-  - ' Uma toalha bordada com iniciais MS2 foi encontrada no local'
-  - "Um t\xEAnis tamanho 39 foi encontrado no local "
+  - {fileID: 11400000, guid: 40a3d49a793aae842b31a3362f321a85, type: 2}
+  - {fileID: 11400000, guid: a9d00f6d65f9abc4a91b545e2dedf1c6, type: 2}
+  - {fileID: 11400000, guid: b06d930a1cfd41a469b48b782427a3fa, type: 2}
+  - {fileID: 11400000, guid: 591082171796f9e49acec9edba871870, type: 2}
+  - {fileID: 11400000, guid: fb9a27b49672e314da450819791eb740, type: 2}

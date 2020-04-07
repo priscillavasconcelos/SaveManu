@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24377bf1b1218a4c93f627322692c21, type: 3}
   m_Name: Papel
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 0}
-  description: 
+  cardSprite: {fileID: 21300000, guid: f43dc7a15dc2fe349b03c76fa2b77fae, type: 3}
+  description_pt: " Foi encontrado um peda\xE7o de papel escrito: Eu n\xE3o sou completo,
+    mas posso ser seu demo?"
+  description_en: 'A piece of paper was found written: I am not complete, but can
+    I be your demo?'

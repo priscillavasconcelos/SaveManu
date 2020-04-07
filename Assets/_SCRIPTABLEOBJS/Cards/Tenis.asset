@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24377bf1b1218a4c93f627322692c21, type: 3}
   m_Name: Tenis
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 0}
-  description: 
+  cardSprite: {fileID: 21300000, guid: 42ea8fb5a51834f469db5bd3516f81a2, type: 3}
+  description_pt: "Um t\xEAnis tamanho 39 foi encontrado no local."
+  description_en: A  size 39 sneaker  was found at the local crime.

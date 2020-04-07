@@ -18,9 +18,8 @@ MonoBehaviour:
   backStory: "Conhecia Manu desde a infancia e sempre foi apaixonado por ela. Ao
     passar dos anos essa obsess\xE3o s\xF3 crescia."
   tips:
-  - Foi encontrado uma foto de infancia de Manu no local do desaparecimento
-  - "A perna de um \xF3culos foi encontrada no local.  "
-  - "Um pada\xE7o de papel escrito: Eu n\xE3o sou completo, mas posso ser seu demo?
-    foi encontrado no local."
-  - 'Uma pessoa de camisa vermelha foi vista saindo do local. '
-  - Um fone de ouvido foi achado proximo ao local do desaparecimento.
+  - {fileID: 11400000, guid: bd96ac339a52a8b4eb065993110d9a32, type: 2}
+  - {fileID: 11400000, guid: 873e32964f2a59f45b7b49a6ed34242c, type: 2}
+  - {fileID: 11400000, guid: 3f2758a71cbb59044bbe079eaa9e637f, type: 2}
+  - {fileID: 11400000, guid: 71f94c2c174840747b1100a9c5558745, type: 2}
+  - {fileID: 11400000, guid: a9d00f6d65f9abc4a91b545e2dedf1c6, type: 2}

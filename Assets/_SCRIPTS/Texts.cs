@@ -210,4 +210,23 @@ public class Texts
                 "ACCUSE";
         }
     }
+    public static string TURNOF
+    {
+        get
+        {
+            return language == Language.Portuguese ?
+                "Vez do XXX" :
+                "Turn of XXX";
+        }
+    }
+    public static string TURNOF_TEXT
+    {
+        get
+        {
+            return language == Language.Portuguese ?
+                "Rápido, o bem-estar de manu depende da sua agilidade" :
+                "Quick, Manu's well-being depends on your agility";
+        }
+    }
+
 }

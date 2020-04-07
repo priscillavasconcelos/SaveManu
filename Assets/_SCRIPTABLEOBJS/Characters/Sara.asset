@@ -18,8 +18,8 @@ MonoBehaviour:
   backStory: 'Sara conheceu Manu nas aulas de yoga. Manu e Sara sempre foram opostas.
     Manu era tipica carnivora sanguinaria e Sara uma uma vegana sentimental. '
   tips:
-  - uma embalagem de barra cereal foi encontrado no local
-  - " uma pulseira de mi\xE7anga foi encontrada no local "
-  - ' Fios de cabelo cacheado foram encontrados no local.'
-  - ' Um homem foi visto saindo do local. '
-  - " Uma garrafa de \xE1gua foi esquecido no local"
+  - {fileID: 11400000, guid: a6f7405d16d3f4e41ac8cdbfa3211274, type: 2}
+  - {fileID: 11400000, guid: ae68e1d9a28c89443abf1626a62a2bd8, type: 2}
+  - {fileID: 11400000, guid: 7e0cfeebb10218b4ba020aa11be7823a, type: 2}
+  - {fileID: 11400000, guid: d8b550cc11e8a1a44bfa6daecd419b7b, type: 2}
+  - {fileID: 11400000, guid: 80cc09c47a33e87479e32e917d04ff2a, type: 2}

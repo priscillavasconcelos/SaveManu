@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24377bf1b1218a4c93f627322692c21, type: 3}
   m_Name: Oculos
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 0}
-  description: 
+  cardSprite: {fileID: 21300000, guid: 0431862fa57fa78438e5ff1224614a7a, type: 3}
+  description_pt: "A perna de um \xF3culos foi encontrada no local"
+  description_en: A glasses' leg was found at the scene

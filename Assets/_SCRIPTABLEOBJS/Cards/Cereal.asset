@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24377bf1b1218a4c93f627322692c21, type: 3}
   m_Name: Cereal
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 0}
-  description: 
+  cardSprite: {fileID: 21300000, guid: 46663b68848524d47b05f1a86a566930, type: 3}
+  description_pt: uma embalagem de barra cereal foi encontrada no local
+  description_en: a packaging of cereal bar was found on the local crime

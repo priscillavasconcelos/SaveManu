@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
                 playerTurnScreen.doNothingBtn.onClick.AddListener(() => NextTurn());
                 for (int y = 0; y < guilty.tips.Count; y++)
                 {
-                    playerTurnScreen.tips[y].text = guilty.tips[y];
+                    //AKIplayerTurnScreen.tips[y].text = guilty.tips[y];
                 }
                 playersTurn.Add(screen);
                 
@@ -191,7 +191,7 @@ public class GameManager : MonoBehaviour
 
         for (int x = 0; x < suspects[sortedGuilty].tips.Count; x++)
         {
-            tips[x].text = suspects[sortedGuilty].tips[x];
+            //AKItips[x].text = suspects[sortedGuilty].tips[x];
         }
         return suspects[sortedGuilty];
 

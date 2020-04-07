@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24377bf1b1218a4c93f627322692c21, type: 3}
   m_Name: Micanga
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 0}
-  description: 
+  cardSprite: {fileID: 21300000, guid: f133d0ce76394e04986aad9d72df0d39, type: 3}
+  description_pt: "uma pulseira de mi\xE7anga foi encontrada no local"
+  description_en: "a beaded bracelet was found at\xE9 the scene"

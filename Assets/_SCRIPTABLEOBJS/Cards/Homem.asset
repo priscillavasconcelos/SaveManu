@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24377bf1b1218a4c93f627322692c21, type: 3}
   m_Name: Homem
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 0}
-  description: 
+  cardSprite: {fileID: 21300000, guid: 4d85d9a775997f5468d3b7c99371d462, type: 3}
+  description_pt: Um homem foi visto saindo do local
+  description_en: A man was seen leaving the scene

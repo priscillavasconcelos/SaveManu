@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24377bf1b1218a4c93f627322692c21, type: 3}
   m_Name: Lenco
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 0}
-  description: 
+  cardSprite: {fileID: 21300000, guid: fd645885b9ebc274d8a4faa94d86d8f5, type: 3}
+  description_pt: "Um len\xE7o foi encontrado no local"
+  description_en: A handkerchief was found at the scene

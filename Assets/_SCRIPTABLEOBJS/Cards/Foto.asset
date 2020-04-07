@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24377bf1b1218a4c93f627322692c21, type: 3}
   m_Name: Foto
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 0}
-  description: 
+  cardSprite: {fileID: 21300000, guid: 1c6e4aa85d0703a4f8a82e6fd5cd0592, type: 3}
+  description_pt: "Foi encontrado uma foto de inf\xE2ncia de Manu no local do desaparecimento"
+  description_en: A Manu's childhood photo was found at the scene.

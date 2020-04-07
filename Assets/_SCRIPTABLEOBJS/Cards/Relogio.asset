@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24377bf1b1218a4c93f627322692c21, type: 3}
   m_Name: Relogio
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 0}
-  description: 
+  cardSprite: {fileID: 21300000, guid: a1c64fe532fcf6a4581af8b5c851331e, type: 3}
+  description_pt: "Um rel\xF3gio foi encontrado no local"
+  description_en: A watch was found at the scene

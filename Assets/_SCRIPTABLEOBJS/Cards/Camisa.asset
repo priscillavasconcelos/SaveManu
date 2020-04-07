@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24377bf1b1218a4c93f627322692c21, type: 3}
   m_Name: Camisa
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 0}
-  description: 
+  cardSprite: {fileID: 21300000, guid: 2631c0a7a4c6ea14d8c1661ec945298b, type: 3}
+  description_pt: Uma pessoa de camisa vermelha foi vista saindo do local
+  description_en: A person wearing  a red shirt was seen leaving the scene

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CardDisplay : MonoBehaviour
 {
     public Card card;
+    public Image image;
     public Text description;
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,15 @@ public class CardDisplay : MonoBehaviour
 
     public void SetCharacter()
     {
-        GetComponent<Image>().sprite = card.cardSprite;
-        GetComponentInChildren<Text>().text = card.description;
+        image.sprite = card.cardSprite;
+        if (Texts.language == Texts.Language.Portuguese)
+        {
+            description.text = card.description_pt;
+        }
+        else
+        {
+            description.text = card.description_en;
+        }
+        
     }
 }

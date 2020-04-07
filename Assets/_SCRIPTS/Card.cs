@@ -7,5 +7,7 @@ public class Card : ScriptableObject
 {
     public Sprite cardSprite;
     [TextArea]
-    public string description;
+    public string description_pt;
+    [TextArea]
+    public string description_en;
 }

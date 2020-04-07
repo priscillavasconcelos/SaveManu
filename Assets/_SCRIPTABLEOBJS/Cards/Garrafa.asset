@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24377bf1b1218a4c93f627322692c21, type: 3}
   m_Name: Garrafa
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 0}
-  description: 
+  cardSprite: {fileID: 21300000, guid: b8c546008fd46f842b2cd0114996fb1a, type: 3}
+  description_pt: "Uma garrafa de \xE1gua foi esquecido no local"
+  description_en: A bottle of water was overlooked at the local crime

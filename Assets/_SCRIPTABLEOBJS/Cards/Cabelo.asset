@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24377bf1b1218a4c93f627322692c21, type: 3}
   m_Name: Cabelo
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 0}
-  description: 
+  cardSprite: {fileID: 21300000, guid: a85b128a5b652204da5d95e0f699c259, type: 3}
+  description_pt: Fios de cabelo cacheado foram encontrados no local do desaparecimento
+  description_en: Strands of curly hair were found at the scene.

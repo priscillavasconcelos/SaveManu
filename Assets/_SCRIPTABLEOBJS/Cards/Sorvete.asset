@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24377bf1b1218a4c93f627322692c21, type: 3}
   m_Name: Sorvete
   m_EditorClassIdentifier: 
-  cardSprite: {fileID: 0}
-  description: 
+  cardSprite: {fileID: 21300000, guid: f78d19118ca66e64aa8eab51ce37a171, type: 3}
+  description_pt: Restos de sorvete foram encontrados no lixo do local
+  description_en: Ice cream remains found in local trash
