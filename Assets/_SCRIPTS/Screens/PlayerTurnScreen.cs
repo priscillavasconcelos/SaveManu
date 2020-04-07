@@ -18,6 +18,9 @@ public class PlayerTurnScreen : Screen
     CharacterDisplay currentSuspect;
     public Button doNothingBtn;
 
+    float timeLeft = 30.0f;
+    public float totalTime = 30.0f;
+
     private void Start()
     {
         playerAvatar.sprite = player.playerAvatarSprite;
@@ -27,6 +30,7 @@ public class PlayerTurnScreen : Screen
         //text.text = Texts.DEFEAT_TEXT;
         button.text = Texts.ACCUSE;
         doNothingBtn.GetComponentInChildren<Text>().text = Texts.NEXT;
+        timeLeft = totalTime;
         
     }
     private void OnEnable()
@@ -47,6 +51,16 @@ public class PlayerTurnScreen : Screen
     public void ToggleProfiles(bool activeProfile)
     {
         suspectsPanel.SetActive(activeProfile);
+    }
+    void Update()
+    {
+        timeLeft -= Time.deltaTime;
+        timer.fillAmount = timeLeft / totalTime;
+        if (timeLeft < 0)
+        {
+            GameManager.manager.PlayerWrongGuess(gameObject, player);
+            
+        }
     }
 
     public void SelectSuspect()
