@@ -212,3 +212,5 @@ MonoBehaviour:
   playerName: Jogador 1
   playerAvatarSprite: {fileID: -7898670983504509472, guid: 77beedc83d183c940afe799ed534be8d,
     type: 3}
+  image: {fileID: 7002467028302752241}
+  text: {fileID: 789108819587883471}

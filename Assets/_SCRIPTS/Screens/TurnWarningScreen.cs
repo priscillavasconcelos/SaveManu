@@ -11,6 +11,7 @@ public class TurnWarningScreen : Screen
     public void SetPlayer(Player player)
     {
         playerObj.GetComponent<Image>().sprite = player.playerAvatarSprite;
-        playerObj.GetComponentInChildren<Text>().text = player.playerName;
+        title.text = Texts.TURNOF.Replace("XXX", player.playerName);
+        button.text = Texts.NEXT;
     }
 }

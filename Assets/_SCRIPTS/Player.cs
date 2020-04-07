@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 {
     public string playerName;
     public Sprite playerAvatarSprite;
+    public Image image;
+    public Text text;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,7 @@ public class Player : MonoBehaviour
 
     public void SetPlayer()
     {
-        GetComponent<Image>().sprite = playerAvatarSprite;
-        GetComponentInChildren<Text>().text = playerName;
+        image.sprite = playerAvatarSprite;
+        text.text = playerName;
     }
 }

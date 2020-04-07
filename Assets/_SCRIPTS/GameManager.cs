@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public List<Sprite> playersAvatars = new List<Sprite>();
 
     public Character guilty;
-    public List<Text> tips = new List<Text>();
+    public List<Card> tips = new List<Card>();
     public List<Player> players = new List<Player>();
     public List<GameObject> playersTurn = new List<GameObject>();
     public List<Character> suspects = new List<Character>();
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
                 playerTurnScreen.doNothingBtn.onClick.AddListener(() => NextTurn());
                 for (int y = 0; y < guilty.tips.Count; y++)
                 {
-                    //AKIplayerTurnScreen.tips[y].text = guilty.tips[y];
+                    playerTurnScreen.tips[y] = guilty.tips[y];
                 }
                 playersTurn.Add(screen);
                 
@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
         int index = playersTurn.IndexOf(current);
         current.SetActive(false);
 
-        if (index == playersTurn.Count-1)
+        if (index == playersTurn.Count - 1)
         {
             currentPlayer = 0;
         }
@@ -148,15 +148,8 @@ public class GameManager : MonoBehaviour
         }
         playersTurn[currentPlayer].SetActive(true);
 
-        if (currentPlayer > 0)
-        {
-            turnWarning.GetComponent<TurnWarningScreen>().SetPlayer(players[currentPlayer - 1]);
-        }
-        else
-        {
-            turnWarning.GetComponent<TurnWarningScreen>().SetPlayer(players[currentPlayer]);
-        }
-        
+        turnWarning.GetComponent<TurnWarningScreen>().SetPlayer(players[currentPlayer]);
+
         turnWarning.SetActive(true);
         turnWarning.transform.SetAsLastSibling();
     }
@@ -191,7 +184,7 @@ public class GameManager : MonoBehaviour
 
         for (int x = 0; x < suspects[sortedGuilty].tips.Count; x++)
         {
-            //AKItips[x].text = suspects[sortedGuilty].tips[x];
+            tips[x] = suspects[sortedGuilty].tips[x];
         }
         return suspects[sortedGuilty];
 
@@ -214,9 +207,9 @@ public class GameManager : MonoBehaviour
             {
                 for (int x = 0; x < playerTurn.GetComponent<PlayerTurnScreen>().tips.Count; x++)
                 {
-                    if (tip.GetComponent<Text>().text == playerTurn.GetComponent<PlayerTurnScreen>().tips[x].text)
+                    if (tip == playerTurn.GetComponent<PlayerTurnScreen>().tips[x])
                     {
-                        playerTurn.GetComponent<PlayerTurnScreen>().tips[x].gameObject.SetActive(true);
+                        //AKIplayerTurn.GetComponent<PlayerTurnScreen>().tips[x].gameObject.SetActive(true);
                     }
 
                 }

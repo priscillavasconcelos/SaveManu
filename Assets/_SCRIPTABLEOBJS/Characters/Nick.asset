@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Nick
   m_EditorClassIdentifier: 
   characterName: Nick
-  avatarSprite: {fileID: -7898670983504509472, guid: 77beedc83d183c940afe799ed534be8d,
-    type: 3}
+  avatarSprite: {fileID: 21300000, guid: 65609e246871e7b4aa4bf781795861b1, type: 3}
   backStory: "Conhecia Manu desde a infancia e sempre foi apaixonado por ela. Ao
     passar dos anos essa obsess\xE3o s\xF3 crescia."
   tips:

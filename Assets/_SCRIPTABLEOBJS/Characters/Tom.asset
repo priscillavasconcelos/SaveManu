@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Tom
   m_EditorClassIdentifier: 
   characterName: Tom
-  avatarSprite: {fileID: -7543299162069311748, guid: 77beedc83d183c940afe799ed534be8d,
-    type: 3}
+  avatarSprite: {fileID: 21300000, guid: c381b178232577a448fe3bb33c16f057, type: 3}
   backStory: "Tom e Manu se conheceram na academia e ficaram logo amigos, por\xE9m
     ap\xF3s Manu dar uma festa de 500K e n\xE3o convidar Tom essa amizade foi abalada.\r"
   tips:

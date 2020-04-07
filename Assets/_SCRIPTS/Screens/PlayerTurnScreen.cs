@@ -8,31 +8,46 @@ using UnityEngine.EventSystems;
 public class PlayerTurnScreen : Screen
 {
     public Player player;
+    public Image playerAvatar;
     public int orderToPlay;
 
-    public Text playerName;
-    public List<Text> tips = new List<Text>();
+    public Image timer;
+    public List<Card> tips = new List<Card>();
     public GameObject suspectsPanel;
-
+    CharacterDisplay currentSuspect;
     public Button doNothingBtn;
 
     private void Start()
     {
-        playerName.text = player.playerName;
+        playerAvatar.sprite = player.playerAvatarSprite;
+        title.text = Texts.TURNOF.Replace("XXX", player.playerName);
+        //title.text = Texts.DEFEAT;
+        subtitle.text = Texts.TURNOF_TEXT;
+        //text.text = Texts.DEFEAT_TEXT;
+        button.text = Texts.ACCUSE;
+        doNothingBtn.GetComponentInChildren<Text>().text = Texts.NEXT;
     }
     public void ToggleProfiles(bool activeProfile)
     {
         suspectsPanel.SetActive(activeProfile);
     }
 
-    public void PointGuilty()
+    public void SelectSuspect()
     {
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
-        GameObject clickedButtonParent = clickedButton.transform.parent.gameObject;
-        
-        CharacterDisplay current = clickedButtonParent.GetComponentInChildren<CharacterDisplay>();
+        GameObject selected = clickedButton.transform.Find("Image").gameObject;
+        currentSuspect = clickedButton.GetComponent<CharacterDisplay>();
+        foreach (CharacterDisplay cd in suspectsPanel.GetComponentsInChildren<CharacterDisplay>())
+        {
+            cd.transform.Find("Image").gameObject.SetActive(false);
+        }
 
-        if (current.character == GameManager.manager.guilty)
+        selected.SetActive(true);
+    }
+
+    public void PointGuilty()
+    {
+        if (currentSuspect.character == GameManager.manager.guilty)
         {
             GameManager.manager.TeamVictory(player);
         }
