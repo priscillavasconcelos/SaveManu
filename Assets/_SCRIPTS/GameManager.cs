@@ -215,7 +215,7 @@ public class GameManager : MonoBehaviour
 
     public void TryAgain()
     {
-        SceneManager.LoadScene("Teste");
+        SceneManager.LoadScene("Gama");
     }
     public void Exit()
     {
