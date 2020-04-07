@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
                 for (int y = 0; y < guilty.tips.Count; y++)
                 {
                     playerTurnScreen.tips[y] = guilty.tips[y];
+                    playerTurnScreen.tipsDisplay[y].card = guilty.tips[y];
                 }
                 playersTurn.Add(screen);
                 
@@ -187,39 +188,6 @@ public class GameManager : MonoBehaviour
             tips[x] = suspects[sortedGuilty].tips[x];
         }
         return suspects[sortedGuilty];
-
-    }
-
-    public void DisplayTip(GameObject tip)
-    {
-        GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
-
-        Button[] buttons = clickedButton.transform.parent.GetComponentsInChildren<Button>();
-
-        foreach (Button button in buttons)
-        {
-            button.interactable = false;
-        }
-
-        foreach (GameObject playerTurn in playersTurn)
-        {
-            if (playerTurn.GetComponent<PlayerTurnScreen>())
-            {
-                for (int x = 0; x < playerTurn.GetComponent<PlayerTurnScreen>().tips.Count; x++)
-                {
-                    if (tip == playerTurn.GetComponent<PlayerTurnScreen>().tips[x])
-                    {
-                        //AKIplayerTurn.GetComponent<PlayerTurnScreen>().tips[x].gameObject.SetActive(true);
-                    }
-
-                }
-            }
-            
-            
-        }
-
-        clickedButton.SetActive(false);
-        tip.SetActive(true);
 
     }
 
