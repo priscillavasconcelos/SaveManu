@@ -13,7 +13,8 @@ public class PlayerTurnScreen : Screen
 
     public Image timer;
     public List<Card> tips = new List<Card>();
-    public List<CardDisplay> tipsDisplay = new List<CardDisplay>();
+    public CardDisplay cardDisplay;
+    //public List<CardDisplay> tipsDisplay = new List<CardDisplay>();
     public GameObject suspectsPanel;
     CharacterDisplay currentSuspect;
     public Button doNothingBtn;
@@ -35,18 +36,18 @@ public class PlayerTurnScreen : Screen
     }
     private void OnEnable()
     {
-        foreach (CardDisplay button in tipsDisplay)
-        {
-            if (!button.transform.GetChild(0).gameObject.activeSelf)
-            {
-                button.GetComponent<Button>().interactable = true;
-            }
-
-        }
+        cardDisplay.GetComponent<Button>().interactable = true;
+        //foreach (CardDisplay button in tipsDisplay)
+        //{
+        //    if (!button.transform.GetChild(0).gameObject.activeSelf)
+        //    {
+        //        button.GetComponent<Button>().interactable = true;
+        //    }
+        //}
     }
     private void OnDisable()
     {
-        
+        cardDisplay.transform.GetChild(0).gameObject.SetActive(false);
     }
     public void ToggleProfiles(bool activeProfile)
     {
@@ -89,17 +90,20 @@ public class PlayerTurnScreen : Screen
     }
     public void DisplayTip()
     {
-        GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
+        //GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
 
-        Button[] buttons = clickedButton.transform.parent.GetComponentsInChildren<Button>();
+        //Button[] buttons = clickedButton.transform.parent.GetComponentsInChildren<Button>();
 
-        foreach (Button button in buttons)
-        {
-            button.interactable = false;
-        }
+        //foreach (Button button in buttons)
+        //{
+        //    button.interactable = false;
+        //}
 
-        //clickedButton.SetActive(false);
-        clickedButton.transform.GetChild(0).gameObject.SetActive(true);
-
+        ////clickedButton.SetActive(false);
+        //clickedButton.transform.GetChild(0).gameObject.SetActive(true);
+        cardDisplay.GetComponent<Button>().interactable = false;
+        cardDisplay.card = tips[Random.Range(0, tips.Count)];
+        cardDisplay.SetCard();
+        cardDisplay.transform.GetChild(0).gameObject.SetActive(true);
     }
 }

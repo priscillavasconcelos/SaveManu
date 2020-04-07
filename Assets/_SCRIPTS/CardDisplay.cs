@@ -11,10 +11,10 @@ public class CardDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetCharacter();
+        //SetCard();
     }
 
-    public void SetCharacter()
+    public void SetCard()
     {
         image.sprite = card.cardSprite;
         if (Texts.language == Texts.Language.Portuguese)

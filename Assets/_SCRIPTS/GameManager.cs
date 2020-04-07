@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
                 for (int y = 0; y < guilty.tips.Count; y++)
                 {
                     playerTurnScreen.tips[y] = guilty.tips[y];
-                    playerTurnScreen.tipsDisplay[y].card = guilty.tips[y];
+                    //playerTurnScreen.tipsDisplay[y].card = guilty.tips[y];
                 }
                 playersTurn.Add(screen);
                 
