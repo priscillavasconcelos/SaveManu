@@ -137,4 +137,77 @@ public class Texts
                 "Tom and Manu are friends from the gym. Tom sees Manu as his inspiring Muse, but after Manu threw a 500K party and didn't invite him, this friendship was shaken and serious consequences are to come.";
         }
     }
+    public static string VICTORY
+    {
+        get
+        {
+            return language == Language.Portuguese ? "VITÓRIA" : "VICTORY";
+        }
+    }
+    public static string VICTORYSUBTITLE
+    {
+        get
+        {
+            return language == Language.Portuguese ? "dos manulovers" : "of manulovers";
+        }
+    }
+    public static string VICTORY_TEXT
+    {
+        get
+        {
+            return language == Language.Portuguese ? 
+                "Graças ao seguidor XXX, o criminoso(a) foi pego. Agora temos mais 24 horas de stories garantidos!" :
+                "Thanks to follower XXX, the criminal was caught. Now we have another 24 hours of guaranteed stories!";
+        }
+    }
+    public static string DEFEAT
+    {
+        get
+        {
+            return language == Language.Portuguese ? "FIM DE JOGO" : "GAME OVER";
+        }
+    }
+    public static string DEFEATSUBTITLE
+    {
+        get
+        {
+            return language == Language.Portuguese ? 
+                "você decepcionou os manulovers" : 
+                "you disappointed the manulovers";
+        }
+    }
+    public static string DEFEAT_TEXT
+    {
+        get
+        {
+            return language == Language.Portuguese ?
+                "Manu ainda está desaparecida. Continue tentando." :
+                "Manu is still missing. Keep trying.";
+        }
+    }
+    public static string ACCUSESUSPECT
+    {
+        get
+        {
+            return language == Language.Portuguese ? "Acusar suspeito" : "Accuse suspect";
+        }
+    }
+    public static string ACCUSESUSPECT_TEXT
+    {
+        get
+        {
+            return language == Language.Portuguese ?
+                "Chegou o grande momento, junte todas as suas pistas e acuse um suspeito." :
+                "The big time has come, bring them all together your clues and accuse a suspect.";
+        }
+    }
+    public static string ACCUSE
+    {
+        get
+        {
+            return language == Language.Portuguese ?
+                "ACUSAR" :
+                "ACCUSE";
+        }
+    }
 }

@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class MeetNickScreen : Screen
 {
-    public Text suspects;
     void Start()
     {
-        suspects.text = Texts.SUSPECTS;
-        title.text = Texts.MEETING + "Nick";
+        title.text = Texts.SUSPECTS;
+        subtitle.text = Texts.MEETING + "Nick";
         text.text = Texts.MEETING_NICK;
     }
 }

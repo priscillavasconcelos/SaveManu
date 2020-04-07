@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0feb5566ea37fad45992b558da4bb28a, type: 3}
+  m_Name: Tom
+  m_EditorClassIdentifier: 
+  characterName: Tom
+  avatarSprite: {fileID: -7543299162069311748, guid: 77beedc83d183c940afe799ed534be8d,
+    type: 3}
+  backStory: "Tom e Manu se conheceram na academia e ficaram logo amigos, por\xE9m
+    ap\xF3s Manu dar uma festa de 500K e n\xE3o convidar Tom essa amizade foi abalada.\r"
+  tips:
+  - Restos de sorvete foram encostrados no lixo do local
+  - "Um fone de ouvido foi achado pr\xF3ximo ao local do desaparecimento"
+  - ' Um brinco foi encontrado no local. '
+  - ' Uma toalha bordada com iniciais MS2 foi encontrada no local'
+  - "Um t\xEAnis tamanho 39 foi encontrado no local "

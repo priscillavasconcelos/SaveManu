@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class TurnWarningScreen : Screen
 {
@@ -12,6 +11,6 @@ public class TurnWarningScreen : Screen
     public void SetPlayer(Player player)
     {
         playerObj.GetComponent<Image>().sprite = player.playerAvatarSprite;
-        playerObj.GetComponentInChildren<TMP_Text>().text = player.playerName;
+        playerObj.GetComponentInChildren<Text>().text = player.playerName;
     }
 }

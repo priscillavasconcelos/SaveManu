@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public List<Sprite> playersAvatars = new List<Sprite>();
 
     public Character guilty;
-    public List<TMP_Text> tips = new List<TMP_Text>();
+    public List<Text> tips = new List<Text>();
     public List<Player> players = new List<Player>();
     public List<GameObject> playersTurn = new List<GameObject>();
     public List<Character> suspects = new List<Character>();
@@ -214,7 +214,7 @@ public class GameManager : MonoBehaviour
             {
                 for (int x = 0; x < playerTurn.GetComponent<PlayerTurnScreen>().tips.Count; x++)
                 {
-                    if (tip.GetComponent<TMP_Text>().text == playerTurn.GetComponent<PlayerTurnScreen>().tips[x].text)
+                    if (tip.GetComponent<Text>().text == playerTurn.GetComponent<PlayerTurnScreen>().tips[x].text)
                     {
                         playerTurn.GetComponent<PlayerTurnScreen>().tips[x].gameObject.SetActive(true);
                     }
@@ -233,9 +233,9 @@ public class GameManager : MonoBehaviour
     public void PlayerWrongGuess(GameObject playerTurn, Player player)
     {
         playerLost.SetActive(true);
-        playersTurn.Remove(playerTurn);
-        players.Remove(player);
-        Destroy(playerTurn);
+        //playersTurn.Remove(playerTurn);
+        //players.Remove(player);
+        //Destroy(playerTurn);
         playerLost.transform.SetAsLastSibling();
     }
     public void DisableWrongPlayer()
@@ -256,16 +256,16 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Teste");
     }
+    public void Exit()
+    {
+        Application.Quit();
+    }
 
     public void TeamVictory(Player player)
     {
-        string newText = victory.GetComponentInChildren<TMP_Text>().text.Replace("XXX", player.playerName);
-        victory.GetComponentInChildren<TMP_Text>().text = newText;
+        string newText = victory.GetComponentInChildren<Text>().text.Replace("XXX", player.playerName);
+        victory.GetComponentInChildren<Text>().text = newText;
         victory.SetActive(true);
         victory.transform.SetAsLastSibling();
-    }
-    public void TeamLoose()
-    {
-        
     }
 }
