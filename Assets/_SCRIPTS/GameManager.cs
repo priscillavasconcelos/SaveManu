@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager manager { get; private set; }
+    
     public GameObject playerPrefab, playersPanel;
     public GameObject playerTurnPrefab, canvas;
     public GameObject turnWarning;
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> gameScreens = new List<GameObject>();
     public int currentScreen;
     public int currentPlayer;
+    public AudioSource cardSound, themeSong;
     private void Awake()
     {
         if (manager != null && manager != this)
@@ -34,6 +36,17 @@ public class GameManager : MonoBehaviour
         else
         {
             manager = this;
+        }
+
+        if (PlayerPrefs.HasKey("Volume"))
+        {
+            Texts.toggleAudio = PlayerPrefs.GetInt("Volume", 0) == 0 ? false : true;
+        }
+        print(Texts.toggleAudio);
+        AudioSource[] audios = GameObject.FindObjectsOfType<AudioSource>();
+        foreach (AudioSource audio in audios)
+        {
+            audio.gameObject.SetActive(Texts.toggleAudio);
         }
     }
 
@@ -77,6 +90,11 @@ public class GameManager : MonoBehaviour
         return current;
     }
 
+    public void PlaySoundCard()
+    {
+        cardSound.Play();
+    }
+
     public void Continue()
     {
         if (currentScreen == 0)
@@ -91,6 +109,7 @@ public class GameManager : MonoBehaviour
                 playerTurnScreen.player = players[x];
                 playerTurnScreen.orderToPlay = x;
                 playerTurnScreen.doNothingBtn.onClick.AddListener(() => NextTurn());
+                playerTurnScreen.cardDisplay.GetComponent<Button>().onClick.AddListener(() => PlaySoundCard());
                 for (int y = 0; y < guilty.tips.Count; y++)
                 {
                     playerTurnScreen.tips[y] = guilty.tips[y];
@@ -193,6 +212,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerWrongGuess(GameObject playerTurn, Player player)
     {
+        themeSong.Stop();
         playerLost.SetActive(true);
         //playersTurn.Remove(playerTurn);
         //players.Remove(player);
@@ -215,17 +235,20 @@ public class GameManager : MonoBehaviour
 
     public void TryAgain()
     {
-        SceneManager.LoadScene("Gama");
+        SceneManager.LoadScene("Game");
     }
     public void Exit()
     {
-        Application.Quit();
+        //Application.Quit();
+        SceneManager.LoadScene("Menu");
     }
 
     public void TeamVictory(Player player)
     {
-        string newText = victory.GetComponentInChildren<Text>().text.Replace("XXX", player.playerName);
-        victory.GetComponentInChildren<Text>().text = newText;
+        themeSong.Stop();
+        //string newText = victory.GetComponentInChildren<Text>().text.Replace("XXX", player.playerName);
+        //victory.GetComponentInChildren<Text>().text = newText;
+        victory.GetComponent<VictoryScreen>().player = player;
         victory.SetActive(true);
         victory.transform.SetAsLastSibling();
     }

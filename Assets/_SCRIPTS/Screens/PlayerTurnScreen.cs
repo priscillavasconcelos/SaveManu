@@ -37,6 +37,7 @@ public class PlayerTurnScreen : Screen
     private void OnEnable()
     {
         cardDisplay.GetComponent<Button>().interactable = true;
+        doNothingBtn.interactable = false;
         //foreach (CardDisplay button in tipsDisplay)
         //{
         //    if (!button.transform.GetChild(0).gameObject.activeSelf)
@@ -101,9 +102,12 @@ public class PlayerTurnScreen : Screen
 
         ////clickedButton.SetActive(false);
         //clickedButton.transform.GetChild(0).gameObject.SetActive(true);
+        doNothingBtn.interactable = true;
         cardDisplay.GetComponent<Button>().interactable = false;
-        cardDisplay.card = tips[Random.Range(0, tips.Count)];
+        int sortTip = Random.Range(0, tips.Count);
+        cardDisplay.card = tips[sortTip];
         cardDisplay.SetCard();
         cardDisplay.transform.GetChild(0).gameObject.SetActive(true);
+        tips.RemoveAt(sortTip);
     }
 }

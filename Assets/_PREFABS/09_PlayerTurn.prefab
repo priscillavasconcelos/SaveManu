@@ -633,7 +633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4323292458580777178
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2847,6 +2847,21 @@ PrefabInstance:
       propertyPath: m_Colors.m_DisabledColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6513492891321616606, guid: 64d09f5915d3cbe489f7abb077632db6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513492891321616606, guid: 64d09f5915d3cbe489f7abb077632db6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513492891321616606, guid: 64d09f5915d3cbe489f7abb077632db6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 8300000, guid: d1d4ad39a70f1944fa2fda7730cd6d18, type: 3}
     - target: {fileID: 8130131037492207474, guid: 64d09f5915d3cbe489f7abb077632db6,
         type: 3}
       propertyPath: m_AnchoredPosition.y

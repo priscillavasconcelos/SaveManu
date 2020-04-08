@@ -10,6 +10,7 @@ public class Texts
         Portuguese
     }
     public static Language language = Language.English;
+    public static bool toggleAudio = true;
 
     public static string PLAY
     { 
@@ -44,6 +45,27 @@ public class Texts
         get
         {
             return language == Language.Portuguese ? "Adicionar Jogador" : "Add Player";
+        }
+    }
+    public static string LANGUAGE
+    {
+        get
+        {
+            return language == Language.Portuguese ? "IDIOMA" : "LANGUAGE";
+        }
+    }
+    public static string DEVELOPMENT
+    {
+        get
+        {
+            return language == Language.Portuguese ? "Programação" : "Development";
+        }
+    }
+    public static string SOUNDDESIGN
+    {
+        get
+        {
+            return language == Language.Portuguese ? "Composição e Design de Som" : "Composition and sound design";
         }
     }
     public static string ADDPLAYER_TEXT
@@ -238,5 +260,40 @@ public class Texts
                 "Tip 1 of 5";
         }
     }
-
+    public static string TUTORIAL1
+    {
+        get
+        {
+            return language == Language.Portuguese ?
+                "Para começar,  você vai adicionar os jogadores que irão fazer parte da investigação colocando o seus nomes." :
+                "To start, you’ll add the players who will be part of the investigation puting their names";
+        }
+    }
+    public static string TUTORIAL2
+    {
+        get
+        {
+            return language == Language.Portuguese ?
+                "Para revelar a dica você precisa arrastar a carta" :
+                "To reveal the tip you need to drag the card";
+        }
+    }
+    public static string TUTORIAL3
+    {
+        get
+        {
+            return language == Language.Portuguese ?
+                "Quando a dica for revelada você terá a opção de chutar ou passar sua vez" :
+                "When the tip Will be revealed you will have the option to kick or pass your turn";
+        }
+    }
+    public static string TUTORIAL4
+    {
+        get
+        {
+            return language == Language.Portuguese ?
+                "Caso o jogador da vez já tenha alguém em mente, ele pode chutar um dos suspeitos" :
+                "If the player of the turn already has someone in mind, he can kick one of the suspects";
+        }
+    }
 }

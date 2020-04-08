@@ -6,31 +6,60 @@ using UnityEngine.UI;
 
 public class HomeScreen : MonoBehaviour
 {
-    //public Text teste;
     public GameObject CanvasConfig;
     public GameObject CanvasDicas;
     public GameObject CanvasTuto;
-    public GameObject CanvasPri;
-    public GameObject CanvasSeg;
-    public GameObject CanvasTer;
-    public GameObject CanvasQua;
+    public List<GameObject> tutorials = new List<GameObject>();
+    int tutorialValue = 0;
+
     public Slider SliderSound;
+    public Sprite audioOn, audioOff;
+    public Image audioIcon;
+
+    #region Variaveis de Texto
+    public Text tutoDesc1, tutoDesc2, tutoDesc3, tutoDesc4;
+    public Text prog, soundDesgin;
+    public Text accuse, pass;
+    public Text start, credits1, credits2, credits3, language, exit;
+    #endregion
     // Start is called before the first frame update
     void Start()
     {
-
-        if (!PlayerPrefs.HasKey("Volume"))
+        //GameManager.manager.toggleAudio = true;
+        //PlayerPrefs.GetInt("Volume", 0);
+        if (PlayerPrefs.HasKey("Volume"))
         {
-            PlayerPrefs.SetFloat("Volume", 1.0f);
+            Texts.toggleAudio = PlayerPrefs.GetInt("Volume", 0) == 0 ? false : true;
+        }
+        
+        audioIcon.sprite = Texts.toggleAudio ? audioOn : audioOff;
+        AudioSource[] audios = GameObject.FindObjectsOfType<AudioSource>();
+        foreach (AudioSource audio in audios)
+        {
+            audio.gameObject.SetActive(Texts.toggleAudio);
         }
 
-        if (!PlayerPrefs.HasKey("Lang"))
-        {
-            PlayerPrefs.SetString("Lang", "Port");
-        }
-
+        Texts.language = (Texts.Language)PlayerPrefs.GetInt("Language", 0);
+        SetLanguage();
         //SliderSound.value = PlayerPrefs.GetFloat("Volume");
 
+    }
+    public void SetLanguage()
+    {
+        tutoDesc1.text = Texts.TUTORIAL1;
+        tutoDesc2.text = Texts.TUTORIAL2;
+        tutoDesc3.text = Texts.TUTORIAL3;
+        tutoDesc4.text = Texts.TUTORIAL4;
+        prog.text = Texts.DEVELOPMENT;
+        soundDesgin.text = Texts.SOUNDDESIGN;
+        accuse.text = Texts.ACCUSE;
+        pass.text = Texts.NEXT;
+        start.text = Texts.PLAY;
+        credits1.text = Texts.CREDITS;
+        credits2.text = Texts.CREDITS;
+        credits3.text = Texts.CREDITS;
+        language.text = Texts.LANGUAGE;
+        exit.text = Texts.EXIT;
     }
     public void Iniciar()
     {
@@ -86,6 +115,7 @@ public class HomeScreen : MonoBehaviour
         }
         else
         {
+            tutorialValue = 0;
             //teste.text = "apareceu";
             CanvasTuto.SetActive(true);
             CanvasDicas.SetActive(false);
@@ -93,55 +123,63 @@ public class HomeScreen : MonoBehaviour
         }
 
     }
-
-    public void MudaIdiomaIng()
+    public void ChangeLanguage(int language)
     {
-        PlayerPrefs.SetString("Lang", "Eng");
+        PlayerPrefs.SetInt("Language", language);
+        Texts.language = (Texts.Language)language;
+        PlayerPrefs.Save();
+        SetLanguage();
     }
-
-    public void MudaIdiomaPor()
+    public void ToggleAudio()
     {
-        PlayerPrefs.SetString("Lang", "Port");
+        Texts.toggleAudio = !Texts.toggleAudio;
+        PlayerPrefs.SetInt("Volume", Texts.toggleAudio ? 1 : 0);
+        audioIcon.sprite = Texts.toggleAudio ? audioOn : audioOff;
+        AudioSource[] audios = GameObject.FindObjectsOfType<AudioSource>();
+        foreach (AudioSource audio in audios)
+        {
+            audio.gameObject.SetActive(Texts.toggleAudio);
+        }
+        PlayerPrefs.Save();
     }
-
     public void MudaVolume()
     {
         PlayerPrefs.SetFloat("Volume", SliderSound.value);      
     }
-
-
-    public void Tutorial( string tela)
+    public void TutorialForward()
     {
-        if (tela == "pri")
+        tutorialValue++;
+        for (int i = 0; i < tutorials.Count; i++)
         {
-            CanvasPri.SetActive(true);
-            CanvasSeg.SetActive(false);
-            CanvasTer.SetActive(false);
-            CanvasQua.SetActive(false);
+            if (i == tutorialValue)
+            {
+                tutorials[i].SetActive(true);
+            }
+            else
+            {
+                tutorials[i].SetActive(false);
+            }
         }
-        if (tela == "seg")
-        {
-            CanvasPri.SetActive(false);
-            CanvasSeg.SetActive(true);
-            CanvasTer.SetActive(false);
-            CanvasQua.SetActive(false);
-        }
-        if (tela == "ter")
-        {
-            CanvasPri.SetActive(false);
-            CanvasSeg.SetActive(false);
-            CanvasTer.SetActive(true);
-            CanvasQua.SetActive(false);
-        }
-        if (tela == "qua")
-        {
-            CanvasPri.SetActive(false);
-            CanvasSeg.SetActive(false);
-            CanvasTer.SetActive(false);
-            CanvasQua.SetActive(true);
-        }
-        
-
     }
+    public void TutorialBackward()
+    {
+        tutorialValue--;
+        for (int i = 0; i < tutorials.Count; i++)
+        {
+            if (i == tutorialValue)
+            {
+                tutorials[i].SetActive(true);
+            }
+            else
+            {
+                tutorials[i].SetActive(false);
+            }
+        }
+    }
+    public void Sair()
+    {
+        Application.Quit();
+    }
+
 
 }
